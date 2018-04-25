@@ -9,7 +9,7 @@ const renameMe = (props) => {
     <div data-testid="root" style={{ backgroundColor: toggle ? 'green' : 'blue' }}>
       <h2>Stateless</h2>
       <label htmlFor="toggled">Current State
-      <input id="toggled" name="toggled" type="checkbox" checked={toggle} onChange={handleToggle} />
+        <input id="toggled" name="toggled" type="checkbox" checked={toggle} onChange={handleToggle} />
       </label>
       <button onClick={handleToggle}>Click me!</button>
     </div>

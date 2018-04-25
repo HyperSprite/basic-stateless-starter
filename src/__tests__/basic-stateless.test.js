@@ -25,7 +25,12 @@ describe('<BasicStateless />', () => {
     expect(getByLabelText('Current State').checked).toEqual(false);
   });
   it('Checkbox and Button handleToggle from props', () => {
-    const { container, getByLabelText, getByText, getByTestId } = render(<BasicStateless {...props} />);
+    const {
+      container,
+      getByLabelText,
+      getByText,
+      getByTestId,
+    } = render(<BasicStateless {...props} />);
     Simulate.change(getByLabelText('Current State')); // simulates checking box
     expect(props.toggle).toEqual(true);
     expect(getByTestId('root').style.backgroundColor).toEqual('blue');
