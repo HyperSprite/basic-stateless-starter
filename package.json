@@ -1,14 +1,14 @@
 {
   "version": "1.0.0",
   "author": "C. Dunavan",
-  "name": "@hypersprite/basic-stateless",
-  "homepage": "https://github.com/HyperSprite/basic-stateless#readme",
+  "name": "@hypersprite/basic-stateless-starter",
+  "homepage": "https://github.com/HyperSprite/basic-stateless-starter#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/HyperSprite/basic-stateless.git"
+    "url": "git+https://github.com/HyperSprite/basic-stateless-starter.git"
   },
   "bugs": {
-    "url": "https://github.com/HyperSprite/basic-stateless/issues"
+    "url": "https://github.com/HyperSprite/basic-stateless-starter/issues"
   },
   "keywords": [
     "testing",
@@ -16,7 +16,7 @@
     "basic"
   ],
   "license": "MIT",
-  "description": "a basic-stateless starter",
+  "description": "a basic stateless starter",
   "main": "dst/index.js",
   "files": [
     "dst"
@@ -83,6 +83,7 @@
     "collectCoverage": true
   },
   "devDependencies": {
+    "@hypersprite/hs-utils": "^1.0.7",
     "babel-cli": "^6.26.0",
     "babel-jest": "^22.4.3",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",

@@ -1,6 +1,6 @@
 # Basic Stateless Starter :|
 
-@HyperSprite/basic-stateless is a Basic Stateless Starter repo to help create, test, and publish stateless components to npm.
+@HyperSprite/basic-stateless-starter is a Basic Stateless Starter repo to help create, test, and publish stateless react components to npm.
 
 Sample readme.md
 ````md
@@ -21,18 +21,6 @@ Some nice one line description
 <RenameMe />
 ```
 
-### Scripts
-
-use `npm run <script>`
-
-* `lint` - runs linter
-* `test` - runs test
-* `test:dev` - runs test in watch mode
-* `build` - runs build
-* `build:dev` - runs build in watch mode
-
-`npm version <major | minor | patch>`
-
 ### API
 
 #### Receives Props
@@ -52,8 +40,20 @@ use `npm run <script>`
 |  |  |  |   |
 |  |  |  |   |
 
-````
 
+### Scripts
+
+use `npm run <script>`
+
+* `lint` - runs linter
+* `test` - runs test
+* `test:dev` - runs test in watch mode
+* `build` - runs build
+* `build:dev` - runs build in watch mode
+
+`npm version <major | minor | patch>`
+
+````
 
 
 
@@ -67,7 +67,7 @@ This is a component builder kit to build and test isolated React and plain ES6 c
 * Use `npm link` to add the isolated component to node_modules of a working dev environment. It could be a vanilla Create React App.
 * Work on style using the `npm run build:watch` in one terminal and Create React App's `npm run start` in another and the the component will automatically updated in the browser.
 * Deploy using `npm publish`
-* Iterate
+* Iterate and deploy using `npm version`
 
 ### Includes
 
@@ -81,24 +81,29 @@ This is a component builder kit to build and test isolated React and plain ES6 c
 > I am using bash on linux, I assume these instructions work on Mac, sorry Windows, you're on your own.
 
 ```bash
-git clone https://github.com/HyperSprite/basic-stateless.git name-of-component
+git clone https://github.com/HyperSprite/basic-stateless-starter.git name-of-component
 cd name-of-component
 rm -rf .git && git init
 npm install
 ```
+Use `npx hs-utils --package rename --old basic-stateless-starter --new name-of-component` to replace the old names in the package.json file.
 
-Work through the `rename-me` sections and do the first commit.
+Use `npx hs-utils --package rename --old HyperSprite --new Your-GitHub-Name` to replace my user name with yours in the package.json file.
 
-### Adding package to local app for development
+Work through the `renameMe` in src/basic-stateless to something relevant and do the first commit.
+
+When you are ready, clean up this readme.md by removing all of this and updating it to use the template at the top. 
+
+### Using `npm link` to add packages to local app for development
 
 > This will not work if you need to run sudo to to install npm modules, [see this article here](see this http://justjs.com/posts/npm-link-developing-your-own-npm-modules-without-tears) if you need help fixing that.
 
-Note that link syslinks the whole module, src and all so if you are doing anything hacky whacky, your local results may not match your published results. After linking, drill down into node_modules and take a look.
+Note that link symlinks the whole module, src and all so if you are doing anything hacky whacky, your local results may not match your published results. After linking, you can drill down into node_modules and take a look.
 
 A bit about naming. NPM will install the package based on the `name` key in the package.json file regardless of the folder it lives in.
 
-Open package.json and check the name, in this case:
-  "name": "@hypersprite/basic-stateless",
+Open package.json and check the `name`, in this case:
+  "name": "@hypersprite/basic-stateless-starter",
 
 Assuming you have a flat folder structure e.g.:
 
@@ -112,11 +117,12 @@ From inside `your-working-app` run the following command:
 npm link ../basic-stateless
 ```
 
-If you look in node_modules, you will now see a directory that matches the name.
+If you look in node_modules, you will now see a directory that matches the name, e.g.
+
+* @hypersprite
+   * basic-stateless-starter
 
 > One nice thing about scoped npm module names is that you don't have to worry about name collisions with modules outside of your own scope. Not that I would recommend creating a scoped `lodash` or 'react' but you could.  
-
-```@hypersprite``` with a sub directory ```basic-stateless```
 
 You can use your local version inside your app as if it was a published module
 ```js
@@ -128,9 +134,10 @@ const rename-me = require('@hypersprite/basic-stateless');
 
 #### Things to remember about npm link that are most likely to cause issues.
 
-
 * Link will overwrite real packages of the same name.
-* Make sure to remember to run `npm run build` after editing your source, or the `dst` folder will be out of date.
+* Linked modules live in your NPM global and act a lot like a global mostly.
+* Make sure to remember to run `npm run build` after editing your source or continue running `npm run build:dev`, or the `dst` folder will be out of date.
+* If you are running `npm run build:dev`, keep an eye on the output, if you have a failed build, your dst will not be updated.
 * If you run npm `install` or `update` on your working app and you still need your link, you will need to rerun the link command. Here's an example of a script you could use to link multiple local packages after an install.
 
 package.json
