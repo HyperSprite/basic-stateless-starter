@@ -31,7 +31,7 @@ Some nice one line description
 |  |  |  |   |
 |  |  |  |   |
 
-#### New Passed Props
+#### Passed Props
 
 | prop name | type | values | description |
 | --------- | ---- | ------ | ----------- |
@@ -92,7 +92,7 @@ Use `npx hs-utils --package rename --old HyperSprite --new Your-GitHub-Name` to 
 
 Work through the `renameMe` in src/basic-stateless to something relevant and do the first commit.
 
-When you are ready, clean up this readme.md by removing all of this and updating it to use the template at the top. 
+When you are ready, clean up this readme.md by removing all of this and updating it to use the template at the top.
 
 ### Using `npm link` to add packages to local app for development
 
