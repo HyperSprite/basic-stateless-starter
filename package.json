@@ -28,10 +28,9 @@
     "test": "jest",
     "test:dev": "jest --watch",
     "lint": "eslint src/* .jsx",
-    "prescripts": "git status && npm run test && npm run lint",
     "build": "rm -rf dst && babel src --out-dir dst --ignore test.js",
     "build:dev": "npm run build -- -w",
-    "precommit": "npm run prescripts",
+    "precommit": "npm run test && npm run lint && git status && hs-utils --package validate",
     "preversion": "npm run prescripts",
     "version": "npm run build",
     "postversion": "npm publish && git push"
@@ -80,16 +79,24 @@
     "testMatch": [
       "<rootDir>/src/**/*.test.*"
     ],
-    "collectCoverage": true
+    "collectCoverage": true,
+    "coverageThreshold": {
+      "global": {
+        "branches": 50,
+        "functions": 50,
+        "lines": 50,
+        "statements": 50
+      }
+    }
   },
   "devDependencies": {
-    "@hypersprite/hs-utils": "^1.0.7",
+    "@hypersprite/hs-utils": "^2.0.0",
     "babel-cli": "^6.26.0",
     "babel-jest": "^22.4.3",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
-    "dom-testing-library": "^1.10.0",
+    "dom-testing-library": "^2.1.0",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.11.0",
@@ -98,7 +105,7 @@
     "husky": "^0.14.3",
     "jest": "^22.4.3",
     "react-test-renderer": "^16.3.2",
-    "react-testing-library": "^2.2.0"
+    "react-testing-library": "^3.0.1"
   },
   "dependencies": {
     "prop-types": "^15.6.1",

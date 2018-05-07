@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 const renameMe = (props) => {
   const { toggle, handleToggle } = props;
   return (
-    <div data-testid="root" style={{ backgroundColor: toggle ? 'green' : 'blue' }}>
+    <div data-testid="root" style={{ color: toggle ? 'green' : 'blue' }}>
       <h2>Stateless</h2>
       <label htmlFor="toggled">Current State
         <input id="toggled" name="toggled" type="checkbox" checked={toggle} onChange={handleToggle} />
